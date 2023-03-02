@@ -1,24 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Switch } from "react-router-dom";
+import "./App.css";
+import Collectioncmp from "./components/Collectioncmp";
+import Deliverycmp from "./components/Deliverycmp";
+import Mangementcmp from "./components/Mangement";
+import Servicecmp from "./components/Servicecmp";
+import { Button } from "react-bootstrap";
+import { Fragment } from "react";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Fragment>
+      <Button variant="primary" size="lg" href="/">
+        Welcome to Data Page
+      </Button>
+      <div className="App">
+        <br></br>
+        <Switch>
+          <Route path="/" exact>
+            <Mangementcmp />
+          </Route>
+          <Route path="/delivery" exact>
+            <Deliverycmp />
+          </Route>
+          <Route path="/collection" exact>
+            <Collectioncmp />
+          </Route>
+          <Route path="/service" exact>
+            <Servicecmp />
+          </Route>
+        </Switch>
+      </div>
+    </Fragment>
   );
 }
 
